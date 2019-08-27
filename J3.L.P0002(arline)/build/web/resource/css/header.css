@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 26, 2019, 9:45:51 PM
+    Author     : Cong Le
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 250px;
+}
+
+.background-top-image {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.logo-image {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+}
+
+header > h4 {
+    position: absolute;
+    top: 95px;
+    left: 200px;
+    color: #FFFFFF;
+}
+
+.authentication-button {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.authentication-button td {
+    padding: 0 10px;
+}
+
+.authentication-button a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+nav {
+    position: absolute;
+    top: 172px;
+    left: 70px;
+    width: 100%;
+}
+
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li {
+    float: left;
+}
+
+nav > ul > li > a {
+    color: #FFFFFF;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 25px 60px;
+    border-radius: 0.25em 0.25em 0 0;
+}
+
+nav > ul > li > a:hover {
+    background-color: #F2F2F2;
+    color: #000000;
+}

@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 27, 2019, 12:56:05 AM
+    Author     : Cong Le
+*/
+
+h2 {
+    margin-top: 30px;
+    text-align: center;
+    color: red;
+}
+
+.login-form {
+    margin-top: 50px;
+}
+
+.login-form > table {
+    margin: auto;
+    width: 30%;
+}
+
+.login-form > table td {
+    padding: 5px 0;
+}
+
+.login-form input[type="submit"] {
+    background-color: #1d86ef;
+    color: #FFFFFF;
+    border: 1px solid grey;
+    border-radius: 0.25em;
+    padding: 5px 15px;
+}
+
+.login-form button[type="button"] {
+    background-color: #1d86ef;
+    border: 1px solid grey;
+    border-radius: 0.25em;
+    padding: 5px 15px;
+}
