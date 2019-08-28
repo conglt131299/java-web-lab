@@ -4,6 +4,9 @@
     Author     : Cong Le
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Flight"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +20,8 @@
         </div>
         <main class="main-container">
             <div class="title">Flight</div>
-            <form action="flight_search" method="POST" class="search-form">
+            <form action="home" method="POST" class="search-form" accept-charset="UTF-8">
+                <%request.setCharacterEncoding("UTF-8");%>
                 <table class="flight-kind">
                     <tr>
                         <td><input type="radio" name="kindOfTicket" value="roundtrip">Round trip</td>
@@ -29,8 +33,9 @@
                         <td style="width: 40%;">From</td>
                         <td>
                             <select name="from">
-                                <option value="HN">Hà Nội</option>
-                                 <option value="HCM">Hồ Chí Minh</option>
+                               <c:forEach items="${requestScope.from}" var="i" varStatus="loop">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
                             </select>
                         </td>
                     </tr>
@@ -38,8 +43,9 @@
                         <td>To</td>
                         <td>
                             <select name="to">
-                                <option value="HN">Hà Nội</option>
-                                <option value="HCM" selected>Hồ Chí Minh</option>
+                                <c:forEach items="${requestScope.to}" var="i" varStatus="loop">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
                             </select>
                         </td>
                     </tr>

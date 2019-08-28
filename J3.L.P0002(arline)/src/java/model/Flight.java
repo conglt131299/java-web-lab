@@ -16,7 +16,10 @@ public class Flight {
     private int id;
     private String from;
     private String to;
-    private Date flightDetail;
+    private Date departTime;
+    private Date returnTime;
+    private Date travelTime;
+
     private double price;
 
     public int getId() {
@@ -43,13 +46,30 @@ public class Flight {
         this.to = to;
     }
 
-    public Date getFlightDetail() {
-        return flightDetail;
+    public Date getDepartTime() {
+        return departTime;
     }
 
-    public void setFlightDetail(Date flightDetail) {
-        this.flightDetail = flightDetail;
+    public void setDepartTime(Date departTime) {
+        this.departTime = departTime;
     }
+
+    public Date getReturnTime() {
+        return returnTime;
+    }
+
+    public void setReturnTime(Date returnTime) {
+        this.returnTime = returnTime;
+    }
+
+    public Date getTravelTime() {
+        return travelTime;
+    }
+
+    public void setTravelTime(Date travelTime) {
+        this.travelTime = travelTime;
+    }
+
 
     public double getPrice() {
         return price;
