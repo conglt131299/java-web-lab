@@ -30,6 +30,12 @@
                         <button type="button"><a href="register" style="text-decoration: none; color: #FFFFFF;">Register</a></button>
                     </td>
                 </tr>
+                <% if (request.getAttribute("loginResult") != null && request.getAttribute("loginResult").equals("false")) {%>
+                <tr>
+                    <td></td>
+                    <td><p style="color: red">* Tên tài khoản hoặc mật khẩu không chính xác</p></td>
+                </tr>
+                <%}%>
             </table>
         </form>
     </body>

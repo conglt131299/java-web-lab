@@ -5,12 +5,15 @@
  */
 package controller;
 
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
@@ -29,6 +32,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("path", "/login");
         request.setAttribute("page", "login.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
@@ -59,7 +63,25 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String email = request.getParameter("email");
+        String pass = request.getParameter("pass");
+        
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.find(email, pass);
+        
+        if (user == null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", null);
+            request.setAttribute("path", "/login");
+            request.setAttribute("loginResult", "false");
+            request.setAttribute("page", "login.jsp");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            request.setAttribute("path", "/home");
+            response.sendRedirect("home");
+        }
     }
 
     /**

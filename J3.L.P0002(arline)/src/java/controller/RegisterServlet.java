@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("path", "/register");
         request.setAttribute("page", "register.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
@@ -85,6 +86,7 @@ public class RegisterServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         userDAO.add(u);
         
+        request.setAttribute("path", "/register");
         request.setAttribute("content", "Register successfully. Please login to use!");
         request.setAttribute("page", "message.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
