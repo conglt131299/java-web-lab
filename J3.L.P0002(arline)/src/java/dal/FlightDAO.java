@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import model.Flight;
 
 /**
@@ -44,7 +45,7 @@ public class FlightDAO extends DBContext {
         return flights;
     }
     
-    public ArrayList<Flight> findFlightByUser(String from, String to, String departTime) {
+    public ArrayList<Flight> findFlightByOneWay(String from, String to, String departTime) {
         ArrayList<Flight> flights = new ArrayList<>();
         
         try {
@@ -70,6 +71,63 @@ public class FlightDAO extends DBContext {
                 flights.add(f);
             }
             
+        } catch (SQLException ex) {
+            
+        }
+        
+        return flights;
+    }
+    
+    public HashMap<String, ArrayList<Flight>> findFlightByRoundTrip(String from, String to, String departTime, String returnTime) {
+        HashMap<String, ArrayList<Flight>> kindOfFlights = new HashMap<>();
+        
+        ArrayList<Flight> departingFlights = findFlightByOneWay(from, to, departTime);
+        ArrayList<Flight> returningFlights = findFlightByOneWay(to, from, returnTime);
+        
+        kindOfFlights.put("departingFlights", departingFlights);
+        kindOfFlights.put("returningFlights", returningFlights);
+        
+        return kindOfFlights;
+    }
+    
+    public ArrayList<Flight> findFlightById(String[] flightId) {
+        ArrayList<Flight> flights = new ArrayList<>();
+        
+        try {
+            
+            
+            if (flightId.length <= 0) {
+                return flights;
+            } else {
+                String sql = "SELECT * FROM Flight WHERE ";
+                for (int i = 0; i < flightId.length; i++) {
+                    if (i != (flightId.length -1)) {
+                        sql += "id=? or ";
+                    }
+                    sql += "id=?";
+                }
+
+                PreparedStatement statement = connection.prepareCall(sql);
+
+                for (int i = 0; i < flightId.length; i++) {
+                    statement.setInt(i+1, Integer.parseInt(flightId[i]));
+                }
+
+                ResultSet rs = statement.executeQuery();
+
+                while (rs.next()) {
+                    Flight f = new Flight();
+                    f.setId(rs.getInt("id"));
+                    f.setFrom(rs.getString("from"));
+                    f.setTo(rs.getString("to"));
+                    f.setDepartTime(rs.getTimestamp("departtime"));
+                    f.setReturnTime(rs.getTimestamp("returntime"));
+                    f.setTravelTime(rs.getTime("traveltime"));
+                    f.setPrice(rs.getFloat("price"));
+
+                    flights.add(f);
+                }
+            }
         } catch (SQLException ex) {
             
         }

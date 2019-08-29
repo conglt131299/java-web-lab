@@ -23,13 +23,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <h1>Departing Flight</h1>
-        <table border="1" id="one-way-flight">
+        <div class="title">Departing Flight</div>
+        <form action="home" method="POST" class="one-way-form">
+        <table id="one-way-flight">
             <tr>
                 <th>TIME</th>
                 <th>DURATION</th>
                 <th>PRICE</th>
-                <th>LINK</th>
+                <th>BOOK</th>
             </tr>
             <% for (Flight f : flights) {
             %>
@@ -41,9 +42,11 @@
                     </td>
                     <td><%=f.getTravelTime() %></td>
                     <td>$<%=f.getPrice() %></td>
-                    <td><a href="#">Book</a></td>
+                    <td><input type="checkbox" name="book" value="<%=f.getId() %>"></td>
                 </tr>
             <% } %>
         </table>
+        <input type="submit" value="BOOK">
+        </form>
     </body>
 </html>

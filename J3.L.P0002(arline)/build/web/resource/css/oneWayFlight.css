@@ -8,9 +8,14 @@ and open the template in the editor.
     Author     : Cong Le
 */
 
-h1 {
+.title {
     margin-top: 50px;
     margin-left: 70px;
+    padding: 20px 45px;
+    display: inline-block;
+    background-color: #DDDDDD;
+    border-radius: 0.25em 0.25em 0 0;
+    border: 1px solid silver;
 }
 
 #one-way-flight {
@@ -19,6 +24,21 @@ h1 {
     text-align: left;
 }
 
-#one-way-flight td {
+#one-way-flight, #one-way-flight th, #one-way-flight td {
     border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#one-way-flight th {
+    background-color: #DDDDDD;
+}
+
+.one-way-form > input[type="submit"] {
+    margin-top: 50px;
+    margin-left: 90%;
+    background-color: #1d86ef;
+    color: #FFFFFF;
+    border: 1px solid grey;
+    border-radius: 0.25em;
+    padding: 5px 15px;
 }

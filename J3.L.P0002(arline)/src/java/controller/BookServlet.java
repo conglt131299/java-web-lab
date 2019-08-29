@@ -18,6 +18,7 @@ public class BookServlet extends BaseAuthenticationController {
 
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("path", "/book");
         request.setAttribute("page", "book.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

@@ -9,9 +9,11 @@ import dal.FlightDAO;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Flight;
 
 /**
@@ -50,19 +52,34 @@ public class HomeServlet extends BaseAuthenticationController {
     
     protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String kindOfTicket = request.getParameter("kindOfTicket");
-        
-        if (kindOfTicket.equals("roundtrip")) {
-            processRoundTrip(request, response);
-        } else {
-            processOneWay(request, response);
+        try {
+           String kindOfTicket = request.getParameter("kindOfTicket");
+            if (kindOfTicket.equals("roundtrip")) {
+                processRoundTrip(request, response);
+            } else if (kindOfTicket.equals("oneway")){
+                processOneWay(request, response);
+            }
+        } catch (NullPointerException ex) {
+            processBook(request, response);
+            return;
         }
+        
         
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
     
     private void processRoundTrip(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String from = request.getParameter("from");
+        String to = request.getParameter("to");
+        String departTime = request.getParameter("departure");
+        String returnTime = request.getParameter("return");
         
+        FlightDAO flightDAO = new FlightDAO();
+        HashMap<String, ArrayList<Flight>> kindOfFlights = flightDAO.findFlightByRoundTrip(from, to, departTime, returnTime);
+        
+        request.setAttribute("path", "/home");
+        request.setAttribute("roundtripflight", kindOfFlights);
+        request.setAttribute("page", "roundTripFlight.jsp");
     }
     
     private void processOneWay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,15 +88,25 @@ public class HomeServlet extends BaseAuthenticationController {
         String departTime = request.getParameter("departure");
         
         FlightDAO flightDAO = new FlightDAO();
-        ArrayList<Flight> flights = flightDAO.findFlightByUser(from, to, departTime);
+        ArrayList<Flight> flights = flightDAO.findFlightByOneWay(from, to, departTime);
         
         request.setAttribute("path", "/home");
         request.setAttribute("onewayflight", flights);
         request.setAttribute("page", "oneWayFlight.jsp");
     }
     
-    
-
+    private void processBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String[] flightId = request.getParameterValues("book");
+        
+        FlightDAO flightDAO = new FlightDAO();
+        ArrayList<Flight> bookedFlights = flightDAO.findFlightById(flightId);
+        
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("bookedFlights", bookedFlights);
+        
+        response.sendRedirect("book");
+    }
     
 
 }

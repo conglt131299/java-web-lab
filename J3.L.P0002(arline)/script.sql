@@ -59,3 +59,5 @@ insert into [Flight]
 values (N'Hồ Chí Minh', N'Hà Nội', '2019-09-08 12:00:00', '2019-09-08 14:15:00', '02:15:00', 200);
 
 SELECT * FROM Flight WHERE [from]=N'Hồ Chí Minh' and [to]=N'Hà Nội' and CAST(flightdetail AS DATE) = CAST('2019-09-08' AS DATE)
+
+select * from Flight where id = 1 or ;

@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Aug 29, 2019, 1:57:02 AM
+    Created on : Aug 29, 2019, 2:36:23 PM
     Author     : Cong Le
 */
 
@@ -33,7 +33,22 @@ and open the template in the editor.
     background-color: #DDDDDD;
 }
 
-.one-way-form > input[type="submit"] {
+#round-trip-flight {
+    width: 90%;
+    margin-left: 70px;
+    text-align: left;
+}
+
+#round-trip-flight, #round-trip-flight th, #round-trip-flight td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#round-trip-flight th {
+    background-color: #DDDDDD;
+}
+
+.round-trip-form input[type="submit"] {
     margin-top: 50px;
     margin-left: 90%;
     background-color: #1d86ef;
