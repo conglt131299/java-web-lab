@@ -15,7 +15,7 @@ CREATE TABLE [User] (
 );
 
 select * from [User];
-delete from [User] where id = 2;
+delete from [User] where id = 3 or id = 5 or id = 6;
 
 DROP TABLE [User];
 
@@ -60,4 +60,5 @@ values (N'Hồ Chí Minh', N'Hà Nội', '2019-09-08 12:00:00', '2019-09-08 14:1
 
 SELECT * FROM Flight WHERE [from]=N'Hồ Chí Minh' and [to]=N'Hà Nội' and CAST(flightdetail AS DATE) = CAST('2019-09-08' AS DATE)
 
-select * from Flight where id = 1 or ;
+select * from BookingHistory;
+delete from BookingHistory where id = 3 or id = 4;

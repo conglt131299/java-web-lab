@@ -21,12 +21,12 @@ public class UserDAO extends DBContext {
 
     public User find(String email, String password) {
         ArrayList<User> users = new ArrayList<>();
-        
+
         try {
             String sql = "select * from [User]";
             PreparedStatement statement = connection.prepareCall(sql);
             ResultSet rs = statement.executeQuery();
-            
+
             while (rs.next()) {
                 User u = new User();
                 u.setId(rs.getInt("id"));
@@ -36,13 +36,13 @@ public class UserDAO extends DBContext {
                 u.setLname(rs.getString("lname"));
                 u.setAddress(rs.getString("address"));
                 u.setPhoneNumber(rs.getString("phonenumber"));
-                u.setSex((rs.getBoolean("sex") == true) ? "Male": "Female");
+                u.setSex((rs.getBoolean("sex") == true) ? "Male" : "Female");
                 u.setAge(rs.getInt("age"));
                 u.setCardNumber(rs.getString("cardnumber"));
-                
+
                 users.add(u);
             }
-            
+
             for (User user : users) {
                 if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
                     return user;
@@ -51,11 +51,10 @@ public class UserDAO extends DBContext {
         } catch (SQLException ex) {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
-    
-    
+
     public void add(User u) {
         try {
             String sql = "INSERT INTO [User]"

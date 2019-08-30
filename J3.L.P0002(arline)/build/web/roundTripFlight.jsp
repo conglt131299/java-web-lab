@@ -12,9 +12,12 @@
 <%@page import="java.util.Locale"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    HashMap<String, ArrayList<Flight>> kindOfFlights = (HashMap<String, ArrayList<Flight>>)request.getAttribute("roundtripflight");
-    SimpleDateFormat simpleDateFormat =
-        new SimpleDateFormat("dd MMM HH:mm", new Locale("en", "US"));
+    // get hashmap contain departing flights and returning flight
+    HashMap<String, ArrayList<Flight>> kindOfFlights = (HashMap<String, ArrayList<Flight>>) request.getAttribute("roundtripflight");
+
+    // format date by custom string
+    SimpleDateFormat simpleDateFormat
+            = new SimpleDateFormat("dd MMM HH:mm", new Locale("en", "US"));
 %>
 <!DOCTYPE html>
 <html>
@@ -25,64 +28,66 @@
     <body>
         <div class="title">Departing Flight</div>
         <form action="home" method="POST" class="round-trip-form"> 
-        <table id="one-way-flight">
-            <tr>
-                <th>TIME</th>
-                <th>DURATION</th>
-                <th>PRICE</th>
-                <th>BOOK</th>
-            </tr>
-            <%for (Map.Entry<String, ArrayList<Flight>> kindOfFlight : kindOfFlights.entrySet()) {
-                    String kind = kindOfFlight.getKey();
-                    ArrayList<Flight> flights = kindOfFlight.getValue();
-            %>
-            <% if (kind.equals("departingFlights")) {%>
-            <% for (Flight f : flights) {
-            %>
+            <input type="hidden" name="kindOfTicket" value="none">
+            <table id="one-way-flight">
+                <tr>
+                    <th>TIME</th>
+                    <th>DURATION</th>
+                    <th>PRICE</th>
+                    <th>BOOK</th>
+                </tr>
+                <%for (Map.Entry<String, ArrayList<Flight>> kindOfFlight : kindOfFlights.entrySet()) {
+                        String kind = kindOfFlight.getKey();
+                        ArrayList<Flight> flights = kindOfFlight.getValue();
+                %>
+                <% if (kind.equals("departingFlights")) {%>
+                <% for (Flight f : flights) {
+                %>
                 <tr>
                     <td style="width: 30%;">
-                        <%=simpleDateFormat.format(f.getDepartTime()) %> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime()) %><br>
-                        <%=f.getFrom() %> <i class="fa fa-plane"></i> <%=f.getTo() %><br>
+                        <%=simpleDateFormat.format(f.getDepartTime())%> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime())%><br>
+                        <%=f.getFrom()%> <i class="fa fa-plane"></i> <%=f.getTo()%><br>
                         VNAirline . AirBus A380
                     </td>
-                    <td><%=f.getTravelTime() %></td>
-                    <td>$<%=f.getPrice() %></td>
-                    <td><input type="checkbox" name="book" value="<%=f.getId() %>"></td>
+                    <td><%=f.getTravelTime()%></td>
+                    <td>$<%=f.getPrice()%></td>
+                    <td><input type="checkbox" name="book" value="<%=f.getId()%>"></td>
                 </tr>
-            <% } %>
-            <% } %>
-            <% } %>
-            
-        </table>
+                <% } %>
+                <% } %>
+                <% } %>
+
+            </table>
             <div class="title">Returning Flight</div>
-        <table id="round-trip-flight">
-            <tr>
-                <th>TIME</th>
-                <th>DURATION</th>
-                <th>PRICE</th>
-                <th>BOOK</th>
-            </tr>
-            <%for (Map.Entry<String, ArrayList<Flight>> kindOfFlight : kindOfFlights.entrySet()) {
-                    String kind = kindOfFlight.getKey();
-                    ArrayList<Flight> flights = kindOfFlight.getValue();
-            %>
-            <% if (kind.equals("returningFlights")) {%>
-            <% for (Flight f : flights) {
-            %>
+            <table id="round-trip-flight">
+                <tr>
+                    <th>TIME</th>
+                    <th>DURATION</th>
+                    <th>PRICE</th>
+                    <th>BOOK</th>
+                </tr>
+                <%for (Map.Entry<String, ArrayList<Flight>> kindOfFlight : kindOfFlights.entrySet()) {
+                        String kind = kindOfFlight.getKey();
+                        ArrayList<Flight> flights = kindOfFlight.getValue();
+                %>
+                <% if (kind.equals("returningFlights")) {%>
+                <% for (Flight f : flights) {
+                %>
                 <tr>
                     <td style="width: 30%;">
-                        <%=simpleDateFormat.format(f.getDepartTime()) %> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime()) %><br>
-                        <%=f.getFrom() %> <i class="fa fa-plane"></i> <%=f.getTo() %><br>
+                        <%=simpleDateFormat.format(f.getDepartTime())%> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime())%><br>
+                        <%=f.getFrom()%> <i class="fa fa-plane"></i> <%=f.getTo()%><br>
                         VNAirline . AirBus A380
                     </td>
-                    <td><%=f.getTravelTime() %></td>
-                    <td>$<%=f.getPrice() %></td>
-                    <td><input type="checkbox" name="book" value="<%=f.getId() %>"></td>
+                    <td><%=f.getTravelTime()%></td>
+                    <td>$<%=f.getPrice()%></td>
+                    <td><input type="checkbox" name="book" value="<%=f.getId()%>"></td>
                 </tr>
-            <% } %>
-            <% } %>
-            <% } %>
-        </table>
+                <% } %>
+                <% } %>
+                <% }%>
+            </table>
             <input type="submit" value="BOOK">
+        </form>
     </body>
 </html>

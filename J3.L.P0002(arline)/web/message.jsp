@@ -6,7 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String message = (String)request.getAttribute("content");
+    // get message's content to display to user
+    String message = (String) request.getAttribute("content");
 %>
 <!DOCTYPE html>
 <html>

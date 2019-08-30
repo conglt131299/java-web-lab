@@ -30,18 +30,18 @@ public abstract class BaseAuthenticationController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+
         // Get user'session logged in
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        
+
         String path = req.getServletPath(); // Get path of servlet user access
 
         if (user != null) {
-            req.setAttribute("path", path);
+            req.setAttribute("path", path); // set path to display title in index.jsp
             processGet(req, resp);
         } else {
-            req.setAttribute("path", path);
+            req.setAttribute("path", path); // set path to display title in index.jsp
             req.setAttribute("content", "You have to login to use this function.");
             req.setAttribute("page", "message.jsp");
             req.getRequestDispatcher("index.jsp").forward(req, resp);

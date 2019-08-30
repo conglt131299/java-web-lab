@@ -11,9 +11,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    // get flights from search form
     ArrayList<Flight> flights = (ArrayList<Flight>) request.getAttribute("onewayflight");
-    SimpleDateFormat simpleDateFormat =
-        new SimpleDateFormat("dd MMM HH:mm", new Locale("en", "US"));
+
+    // format date by custom string
+    SimpleDateFormat simpleDateFormat
+            = new SimpleDateFormat("dd MMM HH:mm", new Locale("en", "US"));
 %>
 <!DOCTYPE html>
 <html>
@@ -25,28 +28,29 @@
     <body>
         <div class="title">Departing Flight</div>
         <form action="home" method="POST" class="one-way-form">
-        <table id="one-way-flight">
-            <tr>
-                <th>TIME</th>
-                <th>DURATION</th>
-                <th>PRICE</th>
-                <th>BOOK</th>
-            </tr>
-            <% for (Flight f : flights) {
-            %>
+            <input type="hidden" name="kindOfTicket" value="none">
+            <table id="one-way-flight">
+                <tr>
+                    <th>TIME</th>
+                    <th>DURATION</th>
+                    <th>PRICE</th>
+                    <th>BOOK</th>
+                </tr>
+                <% for (Flight f : flights) {
+                %>
                 <tr>
                     <td style="width: 30%;">
-                        <%=simpleDateFormat.format(f.getDepartTime()) %> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime()) %><br>
-                        <%=f.getFrom() %> <i class="fa fa-plane"></i> <%=f.getTo() %><br>
+                        <%=simpleDateFormat.format(f.getDepartTime())%> <i class="fa fa-plane"></i> <%=simpleDateFormat.format(f.getReturnTime())%><br>
+                        <%=f.getFrom()%> <i class="fa fa-plane"></i> <%=f.getTo()%><br>
                         VNAirline . AirBus A380
                     </td>
-                    <td><%=f.getTravelTime() %></td>
-                    <td>$<%=f.getPrice() %></td>
-                    <td><input type="checkbox" name="book" value="<%=f.getId() %>"></td>
+                    <td><%=f.getTravelTime()%></td>
+                    <td>$<%=f.getPrice()%></td>
+                    <td><input type="checkbox" name="book" value="<%=f.getId()%>"></td>
                 </tr>
-            <% } %>
-        </table>
-        <input type="submit" value="BOOK">
+                <% }%>
+            </table>
+            <input type="submit" value="BOOK">
         </form>
     </body>
 </html>

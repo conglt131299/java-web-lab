@@ -7,7 +7,8 @@
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    User user = (User)session.getAttribute("user");
+    // get user object
+    User user = (User) session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
@@ -22,25 +23,25 @@
             <img src="resource/image/logo.png" alt="Arline logo" class="logo-image">
             <table class="authentication-button">
                 <% if (user != null) {%>
-                    <tr>
-                        <td><i class="fa fa-folder fa-2x" style="color: grey;"></i></td>
-                        <td><a href="logout"><img src="resource/image/quit_t.png" alt="logout image"></a></td>
-                    </tr>
-                    <tr>
-                        <td><%=user.getFname() %></td>
-                        <td><a href="logout">Logout</a></td>
-                    </tr>
+                <tr>
+                    <td><i class="fa fa-folder fa-2x" style="color: grey;"></i></td>
+                    <td><a href="logout"><img src="resource/image/quit_t.png" alt="logout image"></a></td>
+                </tr>
+                <tr>
+                    <td style="color: white;"><%=user.getFname()%></td>
+                    <td><a href="logout">Logout</a></td>
+                </tr>
                 <% } else { %>
-                    <tr>
-                        <td><a href="login"><i class="fa fa-home fa-2x"></i></a></td>
-                        <td><a href="register"><img src="resource/image/register_t.png" alt="Register image"></a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="login">Login</a></td>
-                        <td><a href="register">Register</a></td>
-                    </tr>
-                <% } %>
-                
+                <tr>
+                    <td><a href="login"><i class="fa fa-home fa-2x"></i></a></td>
+                    <td><a href="register"><img src="resource/image/register_t.png" alt="Register image"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="login">Login</a></td>
+                    <td><a href="register">Register</a></td>
+                </tr>
+                <% }%>
+
             </table>
             <h4>Fast, Frequent & Safe Flights</h4>
             <nav>

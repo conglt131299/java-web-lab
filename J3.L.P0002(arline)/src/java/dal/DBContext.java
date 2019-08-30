@@ -16,10 +16,10 @@ import java.util.logging.Logger;
  * @author Cong Le
  */
 public abstract class DBContext {
+
     Connection connection;
-    
-    public DBContext()
-    {
+
+    public DBContext() {
         try {
             String user = "sonnt69";
             String pass = "sonnt69";
@@ -30,5 +30,5 @@ public abstract class DBContext {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

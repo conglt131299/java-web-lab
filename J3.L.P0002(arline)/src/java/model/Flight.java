@@ -70,7 +70,6 @@ public class Flight {
         this.travelTime = travelTime;
     }
 
-
     public double getPrice() {
         return price;
     }

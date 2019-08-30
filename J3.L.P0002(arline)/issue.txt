@@ -1,3 +1,4 @@
 - Xem lại phần dẫn link cho các servlet.
 - Không thể style cho book.jsp qua remote css file.
 - Đang lỗi phần render booking cho chuyến bay 2 chiều.
+- Thanh toán xong phải xóa bookedFlight session.

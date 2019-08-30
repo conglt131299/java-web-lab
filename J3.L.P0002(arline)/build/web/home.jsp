@@ -24,7 +24,7 @@
                 <%request.setCharacterEncoding("UTF-8");%>
                 <table class="flight-kind">
                     <tr>
-                        <td><input type="radio" name="kindOfTicket" value="roundtrip">Round trip</td>
+                        <td><input type="radio" name="kindOfTicket" value="roundtrip" checked>Round trip</td>
                         <td><input type="radio" name="kindOfTicket" value="oneway">One way</td>
                     </tr>
                 </table>
@@ -33,7 +33,7 @@
                         <td style="width: 40%;">From</td>
                         <td>
                             <select name="from">
-                               <c:forEach items="${requestScope.from}" var="i" varStatus="loop">
+                                <c:forEach items="${requestScope.from}" var="i" varStatus="loop">
                                     <option value="${i}">${i}</option>
                                 </c:forEach>
                             </select>
