@@ -2,22 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/resource/css/home.css</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/src/java/model/Flight.java</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/header.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/resource/css/roundTripFlight.css</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/src/java/dal/FlightDAO.java</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/src/java/controller/BookServlet.java</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/roundTripFlight.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/index.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/resource/css/oneWayFlight.css</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/login.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/resource/css/book.css</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/src/java/controller/HomeServlet.java</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/home.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/book.jsp</file>
-            <file>file:/C:/Users/Cong%20Le/Documents/FPT%20University/LAB231/JAVA%20WEB%20SOLUTION/J3.L.P0002(arline)/web/oneWayFlight.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
