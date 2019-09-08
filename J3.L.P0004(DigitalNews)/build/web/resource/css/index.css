@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 8, 2019, 9:26:05 PM
+    Author     : Cong Le
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e7e7e7;
+}
+
+#container {
+    width: 886px;
+    margin: 50px auto;  
+}
+
+#pre-header {
+    height: 71px;
+}
+
+#custom-header {
+    height: 78px;
+    background-image: url("../image/header.jpg");
+}
+
+#custom-header > h3 {
+    margin-top: 0;
+    margin-left: 90px;
+    color: #FFFFFF;
+}
+
+nav {
+    height: 32px;
+    background-image: url("../image/menu.jpg");
+}
+
+nav > a {
+    margin-top: 5px;
+    margin-left: 90px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#wrapper {
+    height: 500px;
+    background-image: url("../image/bg.jpg");
+    background-size: contain;
+}
+
+#main-container, aside {
+    float: left;
+}
+
+#main-container {
+    width: 60%;
+    margin-left: 90px;
+    box-sizing: border-box;
+}
+
+aside {
+    width: 25%;
+    height: 500px;
+    box-sizing: border-box;
+    border-left: 2px dashed #d2d2d2;
+}
+
+footer {
+    height: 78px;
+    background-image: url("../image/footer.jpg");
+}
+
