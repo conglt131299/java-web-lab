@@ -1,0 +1,1 @@
+- Tại sao phải closeConnection sau khi lấy dữ liệu xong từ Database?

@@ -49,9 +49,12 @@ nav > a {
 }
 
 #wrapper {
-    height: 500px;
+/*    chua hieu lam*/
+    width: inherit;
+    display: inline-block;  
     background-image: url("../image/bg.jpg");
     background-size: contain;
+    margin-bottom: -4px;
 }
 
 #main-container, aside {
@@ -61,12 +64,14 @@ nav > a {
 #main-container {
     width: 60%;
     margin-left: 90px;
+    padding-right: 10px;
     box-sizing: border-box;
 }
 
 aside {
-    width: 25%;
-    height: 500px;
+    width: 200px;
+    height: inherit;
+    padding: 0 10px;
     box-sizing: border-box;
     border-left: 2px dashed #d2d2d2;
 }

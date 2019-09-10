@@ -1,0 +1,25 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 9, 2019, 10:20:24 PM
+    Author     : Cong Le
+*/
+
+form > input[type=search] {
+    border: 2px dotted black;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul > li > a {
+    color: black;
+    display: block;
+    padding: 5px 0;
+}

@@ -1,0 +1,13 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 10, 2019, 2:11:18 PM
+    Author     : Cong Le
+*/
+
+.time-icon::before {
+    content: url("../image/timeicon.gif");
+}
