@@ -1,1 +1,2 @@
 - Tại sao phải closeConnection sau khi lấy dữ liệu xong từ Database?
+- Cannot forward after response have committed. Có thể do response lỗi ở một servlet nào đó.
